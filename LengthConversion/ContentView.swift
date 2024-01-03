@@ -34,7 +34,7 @@ struct ContentView: View {
         case "yd":
             return inputInMeters * 1.094
         case "mi":
-            return inputInMeters / 1609.344
+            return inputInMeters / 1609
         default:
             return inputInMeters
         }
@@ -65,12 +65,12 @@ struct ContentView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                Section {
+                Section(inputUnit) {
                     TextField("Input", value: $inputValue, format: .number)
                         .keyboardType(.decimalPad)
                         .focused($inputIsFocused)
                 }
-                Section {
+                Section(outputUnit) {
                     Text(outputValue, format: .number)
                     
                 }
